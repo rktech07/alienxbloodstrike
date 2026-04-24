@@ -1,0 +1,27 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      ".firebaseignore",
+      "server.js",
+      "server.ps1",
+      "package.json",
+      "node_modules/**",
+      ".git/**"
+    ],
+    "headers": [
+      {
+        "source": "/config.json",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store" }]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/save-config",
+        "destination": "/save-config-stub.json"
+      }
+    ]
+  }
+}
