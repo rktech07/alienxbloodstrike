@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodStrike Hub – Social</title>
+    <meta name="description" content="BloodStrike Hub: tournaments, giveaways, latest videos, and game updates for the ultimate Blood Strike fan community.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- Animated particle background -->
+<div id="particles-bg" aria-hidden="true"></div>
+
+<!-- Mobile Header -->
+<div class="mobile-header">
+    <a href="/" class="logo" style="text-decoration: none; color: inherit;"><span class="logo-blood">BLOOD</span><span class="logo-strike">STRIKE</span><span class="logo-hub"> HUB</span></a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+</div>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="main-nav">
+    <a href="/" class="logo" style="text-decoration: none; color: inherit;"><span class="logo-blood">BLOOD</span><span class="logo-strike">STRIKE</span><br><span class="logo-hub">HUB</span></a>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/" id="nav-home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+        <li><a href="/updates" id="nav-updates"><i class="fa-solid fa-bolt"></i><span>BS Updates</span></a></li>
+        <li><a href="/social" id="nav-social"><i class="fa-solid fa-hashtag"></i><span>Social</span></a></li>
+        <li><a href="/tournaments" id="nav-tournaments"><i class="fa-solid fa-trophy"></i><span>Tournaments</span></a></li>
+        <li><a href="/spin" id="nav-spinwheel"><i class="fa-solid fa-dharmachakra"></i><span>Spin Wheel</span></a></li>
+    </ul>
+    <a href="#" id="nav-new-upload" class="nav-new-upload hidden" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-bell"></i> <span id="nav-new-upload-label">New Upload!</span>
+    </a>
+    <div id="nav-profile" class="nav-profile" style="display:none;">
+        <img id="nav-profile-img" src="" alt="Channel Logo">
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="content-container">
+    <!-- SOCIAL VIEW -->
+    <section id="social" class="view active">
+        <div class="glass-panel wide">
+            <h2><i class="fa-solid fa-satellite-dish"></i> Social <span class="glow-text">Hub</span></h2>
+            <p class="text-dim mb-4">Connect with me across all platforms</p>
+            <div class="social-grid">
+                <div class="platform-card youtube" id="yt-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-youtube"></i></div>
+                    <h3>YouTube</h3>
+                    <p><span id="yt-channel-name" class="status connected">@Alien.x010</span></p>
+                    <a href="https://www.youtube.com/@Alien.x010" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="yt-subscribe-btn">Subscribe</a>
+                </div>
+                <div class="platform-card discord" id="discord-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-discord"></i></div>
+                    <h3>Discord</h3>
+                    <p><span class="status connected">Join the Squad</span></p>
+                    <a href="https://discord.gg/HAbxegtR" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="discord-link-btn">Join Server</a>
+                </div>
+                <div class="platform-card facebook" id="fb-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-facebook"></i></div>
+                    <h3>Facebook</h3>
+                    <p><span class="status connected">Follow us</span></p>
+                    <a href="https://www.facebook.com/share/14e41X3AExw/" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="fb-link-btn">Follow Page</a>
+                </div>
+                <div class="platform-card instagram" id="ig-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-instagram"></i></div>
+                    <h3>Instagram</h3>
+                    <p><span class="status connected">@alienxbloodstrike</span></p>
+                    <a href="https://www.instagram.com/alienxbloodstrike" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="ig-link-btn">Follow</a>
+                </div>
+                <div class="platform-card tiktok" id="tiktok-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-tiktok"></i></div>
+                    <h3>TikTok</h3>
+                    <p><span class="status connected">@alienxbloodstrike</span></p>
+                    <a href="https://www.tiktok.com/@alienxbloodstrike" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="tiktok-link-btn">Follow</a>
+                </div>
+                <div class="platform-card twitch" id="twitch-card" style="display:none;">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-twitch"></i></div>
+                    <h3>Twitch</h3>
+                    <p><span class="status connected">Live Channel</span></p>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="twitch-link-btn">Follow Channel</a>
+                </div>
+            </div>
+            <h3 class="mt-4">Latest Activity</h3>
+            <div class="feed-container">
+                <div class="feed-item"><i class="fa-brands fa-youtube icon-small" style="color:#ff0000;"></i>
+                <div class="feed-text" id="yt-latest-activity">Content from ALIEN .X</div></div>
+                <div class="feed-item"><i class="fa-brands fa-discord icon-small" style="color:#5865f2;"></i>
+                <div class="feed-text">Join the community on Discord — giveaways, squad play & more!</div></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Scrolling character -->
+<div id="scrolling-character" aria-hidden="true"><i class="fa-solid fa-person-military-rifle"></i></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="/spin_wheel.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

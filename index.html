@@ -16,15 +16,24 @@
 <!-- Animated particle background -->
 <div id="particles-bg" aria-hidden="true"></div>
 
-<!-- Navigation -->
-<nav class="glass-nav" id="main-nav">
-    <div class="logo"><span class="logo-blood">BLOOD</span><span class="logo-strike">STRIKE</span><span class="logo-hub"> HUB</span></div>
+<!-- Mobile Header -->
+<div class="mobile-header">
+    <a href="/" class="logo" style="text-decoration: none; color: inherit;"><span class="logo-blood">BLOOD</span><span class="logo-strike">STRIKE</span><span class="logo-hub"> HUB</span></a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+</div>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="main-nav">
+    <a href="/" class="logo" style="text-decoration: none; color: inherit;"><span class="logo-blood">BLOOD</span><span class="logo-strike">STRIKE</span><br><span class="logo-hub">HUB</span></a>
     <ul class="nav-links" id="nav-links">
-        <li><a href="#" data-target="home" class="active" id="nav-home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-        <li><a href="#" data-target="updates" id="nav-updates"><i class="fa-solid fa-bolt"></i><span>BS Updates</span></a></li>
-        <li><a href="#" data-target="social" id="nav-social"><i class="fa-solid fa-hashtag"></i><span>Social</span></a></li>
-        <li><a href="#" data-target="tournaments" id="nav-tournaments"><i class="fa-solid fa-trophy"></i><span>Tournaments</span></a></li>
-        <li><a href="#" data-target="spinwheel" id="nav-spinwheel"><i class="fa-solid fa-dharmachakra"></i><span>Spin Wheel</span></a></li>
+        <li><a href="/" id="nav-home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+        <li><a href="/updates" id="nav-updates"><i class="fa-solid fa-bolt"></i><span>BS Updates</span></a></li>
+        <li><a href="/social" id="nav-social"><i class="fa-solid fa-hashtag"></i><span>Social</span></a></li>
+        <li><a href="/tournaments" id="nav-tournaments"><i class="fa-solid fa-trophy"></i><span>Tournaments</span></a></li>
+        <li><a href="/spin" id="nav-spinwheel"><i class="fa-solid fa-dharmachakra"></i><span>Spin Wheel</span></a></li>
     </ul>
     <a href="#" id="nav-new-upload" class="nav-new-upload hidden" target="_blank" rel="noopener noreferrer">
         <i class="fa-solid fa-bell"></i> <span id="nav-new-upload-label">New Upload!</span>
@@ -32,7 +41,6 @@
     <div id="nav-profile" class="nav-profile" style="display:none;">
         <img id="nav-profile-img" src="" alt="Channel Logo">
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
 </nav>
 
 <!-- Main Content -->
@@ -88,7 +96,7 @@
             <!-- BLOOD STRIKE UPDATES -->
             <div class="section-header">
                 <h2 class="section-title"><i class="fa-solid fa-bolt"></i> Blood Strike <span class="glow-text">Updates</span></h2>
-                <a href="#" data-target="updates" class="view-all-btn" id="home-view-all-updates"><i class="fa-solid fa-arrow-right"></i> View All</a>
+                <a href="/updates" class="view-all-btn" id="home-view-all-updates"><i class="fa-solid fa-arrow-right"></i> View All</a>
             </div>
             <div class="updates-feed" id="bs-updates-feed">
                 <div class="update-skeleton">
@@ -148,106 +156,6 @@
                 <p id="blog-text" class="blog-excerpt">The recent Blood Strike patch completely shifted the meta. SMGs are dominating close-quarters combat. I've found a lethal combo using the URB with extended mags and ADS speed attachments. Drop a full breakdown soon — stay sharp, Strikers!</p>
             </div>
 
-        </div>
-    </section>
-
-    <!-- BS UPDATES FULL VIEW -->
-    <section id="updates" class="view hidden">
-        <div class="glass-panel wide">
-            <div class="section-header" style="margin-bottom:1.5rem;">
-                <h2 class="section-title"><i class="fa-solid fa-bolt"></i> Blood Strike <span class="glow-text">Updates</span></h2>
-                <a href="https://www.blood-strike.com/news/" target="_blank" rel="noopener noreferrer" class="view-all-btn">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Official Site
-                </a>
-            </div>
-            <p class="text-dim mb-4">Latest news and patch notes sourced directly from <strong style="color:var(--primary);">blood-strike.com</strong></p>
-            <div class="updates-feed updates-feed-full" id="bs-updates-feed-full">
-                <!-- filled by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- SOCIAL VIEW -->
-    <section id="social" class="view hidden">
-        <div class="glass-panel wide">
-            <h2><i class="fa-solid fa-satellite-dish"></i> Social <span class="glow-text">Hub</span></h2>
-            <p class="text-dim mb-4">Connect with me across all platforms</p>
-            <div class="social-grid">
-                <div class="platform-card youtube" id="yt-card">
-                    <div class="platform-icon-wrap"><i class="fa-brands fa-youtube"></i></div>
-                    <h3>YouTube</h3>
-                    <p><span id="yt-channel-name" class="status connected">@Alien.x010</span></p>
-                    <a href="https://www.youtube.com/@Alien.x010" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="yt-subscribe-btn">Subscribe</a>
-                </div>
-                <div class="platform-card discord" id="discord-card">
-                    <div class="platform-icon-wrap"><i class="fa-brands fa-discord"></i></div>
-                    <h3>Discord</h3>
-                    <p><span class="status connected">Join the Squad</span></p>
-                    <a href="https://discord.gg/HAbxegtR" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="discord-link-btn">Join Server</a>
-                </div>
-                <div class="platform-card facebook" id="fb-card">
-                    <div class="platform-icon-wrap"><i class="fa-brands fa-facebook"></i></div>
-                    <h3>Facebook</h3>
-                    <p><span class="status connected">Follow us</span></p>
-                    <a href="https://www.facebook.com/share/14e41X3AExw/" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="fb-link-btn">Follow Page</a>
-                </div>
-                <div class="platform-card instagram" id="ig-card">
-                    <div class="platform-icon-wrap"><i class="fa-brands fa-instagram"></i></div>
-                    <h3>Instagram</h3>
-                    <p><span class="status connected">@alienxbloodstrike</span></p>
-                    <a href="https://www.instagram.com/alienxbloodstrike" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="ig-link-btn">Follow</a>
-                </div>
-                <div class="platform-card tiktok" id="tiktok-card">
-                    <div class="platform-icon-wrap"><i class="fa-brands fa-tiktok"></i></div>
-                    <h3>TikTok</h3>
-                    <p><span class="status connected">@alienxbloodstrike</span></p>
-                    <a href="https://www.tiktok.com/@alienxbloodstrike" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="tiktok-link-btn">Follow</a>
-                </div>
-                <div class="platform-card twitch" id="twitch-card" style="display:none;">
-                    <div class="platform-icon-wrap"><i class="fa-brands fa-twitch"></i></div>
-                    <h3>Twitch</h3>
-                    <p><span class="status connected">Live Channel</span></p>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="twitch-link-btn">Follow Channel</a>
-                </div>
-            </div>
-            <h3 class="mt-4">Latest Activity</h3>
-            <div class="feed-container">
-                <div class="feed-item"><i class="fa-brands fa-youtube icon-small" style="color:#ff0000;"></i>
-                <div class="feed-text" id="yt-latest-activity">Content from ALIEN .X</div></div>
-                <div class="feed-item"><i class="fa-brands fa-discord icon-small" style="color:#5865f2;"></i>
-                <div class="feed-text">Join the community on Discord — giveaways, squad play & more!</div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TOURNAMENTS VIEW -->
-    <section id="tournaments" class="view hidden">
-        <div class="glass-panel wide">
-            <h2><i class="fa-solid fa-trophy"></i> Active <span class="glow-text">Events</span></h2>
-            <ul class="event-list" id="public-tournaments-list">
-                <li><div><strong>No active events</strong><span>Check back later!</span></div></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- SPIN WHEEL VIEW -->
-    <section id="spinwheel" class="view hidden">
-        <div class="glass-panel wide spinwheel-layout">
-            <div class="wheel-controls glass-card">
-                <h2><i class="fa-solid fa-dharmachakra"></i> Live <span class="glow-text">Giveaway</span></h2>
-                <p class="text-dim" id="spin-status-msg">Waiting for the admin to spin the wheel...</p>
-                <div id="winnerDisplay" class="winner-display hidden">
-                    <h3>🎉 WINNER 🎉</h3>
-                    <p id="winnerText">...</p>
-                </div>
-                <h3 class="mt-4" style="color:var(--secondary);"><i class="fa-solid fa-crown"></i> Recent Winners</h3>
-                <ul id="winnersList" style="list-style:none;padding:0;max-width:400px;margin:1rem auto;text-align:left;">
-                    <li style="text-align:center;color:var(--text-dim);">No winners yet. Spin the wheel!</li>
-                </ul>
-            </div>
-            <div class="wheel-3d-container">
-                <canvas id="wheelCanvas"></canvas>
-            </div>
         </div>
     </section>
 

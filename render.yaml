@@ -8,3 +8,15 @@ services:
       - type: rewrite
         source: /save-config
         destination: /save-config-stub.json
+      - type: rewrite
+        source: /updates
+        destination: /updates.html
+      - type: rewrite
+        source: /social
+        destination: /social.html
+      - type: rewrite
+        source: /tournaments
+        destination: /tournaments.html
+      - type: rewrite
+        source: /spin
+        destination: /spin.html

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,9 +13,9 @@
             background: #13131e;
         }
 
-        .glass-nav {
+        .sidebar {
             background: rgba(255, 100, 100, 0.08);
-            border-bottom: 1px solid rgba(255, 118, 117, 0.3);
+            border-right: 1px solid rgba(255, 118, 117, 0.3);
         }
 
         .logo-blood {
@@ -109,10 +109,18 @@
 
     <!-- Admin Content -->
     <div id="admin-main-content" style="display:none;">
-        <nav class="glass-nav">
-            <div class="logo"><span class="logo-blood">CREATOR</span><span class="logo-strike">HUB</span><span
-                    class="admin-badge">ADMIN</span></div>
-            <ul class="nav-links" style="flex:1;justify-content:center;">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <a href="/" class="logo" style="text-decoration: none; color: inherit;"><span class="logo-blood">CREATOR</span><span class="logo-strike">HUB</span><span class="admin-badge">ADMIN</span></a>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <nav class="sidebar" id="main-nav">
+            <a href="/" class="logo" style="text-decoration: none; color: inherit;"><span class="logo-blood">CREATOR</span><br><span class="logo-strike">HUB</span><span class="admin-badge">ADMIN</span></a>
+            <ul class="nav-links">
                 <li><a href="#" data-target="social" class="active"><i class="fa-solid fa-hashtag"></i><span>API &amp;
                             Social</span></a></li>
                 <li><a href="#" data-target="videos"><i class="fa-solid fa-film"></i><span>Videos</span></a></li>
@@ -124,7 +132,7 @@
                             class="fa-solid fa-arrow-up-right-from-square"></i><span>Public Site</span></a></li>
             </ul>
         </nav>
-        <main class="content-container" style="align-items:flex-start;overflow-y:auto;padding-top:80px;">
+        <main class="content-container" style="align-items:flex-start;">
             <div style="width:92%;max-width:1050px;margin:0 auto;padding-bottom:4rem;">
 
                 <!-- API & SOCIAL -->

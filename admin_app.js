@@ -59,8 +59,41 @@ function initNav() {
             link.classList.add('active');
             const tv = document.getElementById(link.dataset.target); if (!tv) return;
             tv.style.display = 'flex'; setTimeout(() => tv.classList.add('active'), 10);
+            
+            // Close sidebar on mobile
+            const sidebar = document.getElementById('main-nav');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar && overlay && window.innerWidth <= 900) {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+                const ham = document.getElementById('nav-hamburger');
+                if (ham) {
+                    const icon = ham.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-bars';
+                }
+            }
         });
     });
+
+    const ham = document.getElementById('nav-hamburger');
+    const sidebar = document.getElementById('main-nav');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (ham && sidebar && overlay) {
+        ham.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+            const icon = ham.querySelector('i');
+            if (icon) icon.className = sidebar.classList.contains('open') ? 'fa-solid fa-times' : 'fa-solid fa-bars';
+        });
+        
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            const icon = ham.querySelector('i');
+            if (icon) icon.className = 'fa-solid fa-bars';
+        });
+    }
 }
 
 // ── PREFILL INPUTS FROM CONFIG ────────────────────────────────────────────

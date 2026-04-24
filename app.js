@@ -40,33 +40,50 @@ function spawnParticles() {
 
 // ── Nav routing ──────────────────────────────────────────────────────────────
 function initNav() {
-    const links = document.querySelectorAll('.nav-links a[data-target]');
-    const views = document.querySelectorAll('.view');
+    // Highlight active link based on current path
+    const path = window.location.pathname.replace('.html', '').replace(/\/$/, '') || '/';
+    const links = document.querySelectorAll('.nav-links a');
     links.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            links.forEach(l => l.classList.remove('active'));
-            views.forEach(v => {
-                v.classList.remove('active');
-                v.style.display = ''; // clear inline style, let CSS class control it
-            });
+        link.classList.remove('active');
+        const linkPath = link.getAttribute('href').replace('.html', '').replace(/\/$/, '') || '/';
+        if (path === linkPath || (path === '/index' && linkPath === '/')) {
             link.classList.add('active');
-            const tv = document.getElementById(link.dataset.target);
-            if (!tv) return;
-            tv.classList.remove('hidden'); // remove the !important hidden class
-            tv.style.display = '';        // clear inline style
-            setTimeout(() => tv.classList.add('active'), 10);
-        });
+        }
     });
     // Hamburger
     const ham = document.getElementById('nav-hamburger');
-    const nl  = document.getElementById('nav-links');
-    if (ham && nl) ham.addEventListener('click', () => nl.classList.toggle('open'));
+    const sidebar = document.getElementById('main-nav');
+    const overlay = document.getElementById('sidebar-overlay');
 
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
-        document.getElementById('main-nav')?.classList.toggle('scrolled', window.scrollY > 30);
-    }, {passive:true});
+    if (ham && sidebar && overlay) {
+        ham.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+            const icon = ham.querySelector('i');
+            if (icon) icon.className = sidebar.classList.contains('open') ? 'fa-solid fa-times' : 'fa-solid fa-bars';
+        });
+        
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            const icon = ham.querySelector('i');
+            if (icon) icon.className = 'fa-solid fa-bars';
+        });
+        
+        // Close sidebar when a link is clicked on mobile
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                    const icon = ham.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-bars';
+                }
+            });
+        });
+    }
+
+    // Nav scroll effect (no longer needed for sidebar, but safe to leave or remove. Removing.)
 }
 
 // ── Build a single update card HTML ─────────────────────────────────────
@@ -123,17 +140,6 @@ function renderUpdates() {
     }
 }
 
-// ── Wire "View All Updates" home button ──────────────────────────────────
-function initViewAllUpdates() {
-    const btn = document.getElementById('home-view-all-updates');
-    if (!btn) return;
-    btn.addEventListener('click', e => {
-        e.preventDefault();
-        // Simulate clicking the BS Updates nav link
-        const updatesNavLink = document.querySelector('[data-target="updates"]');
-        if (updatesNavLink) updatesNavLink.click();
-    });
-}
 
 // ── Render video cards ──────────────────────────────────────────────────
 function renderVideos() {
@@ -297,5 +303,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTilt();
     initCharacter();
     initStorageSync();
-    initViewAllUpdates();
 });

@@ -1,4 +1,4 @@
-$port = 3000
+$port = 8080
 $dir  = $PSScriptRoot
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
@@ -62,6 +62,10 @@ try {
 
         if ($path -eq "/") { $path = "/index.html" }
         $localPath = Join-Path $dir $path.TrimStart("/").Replace("/","\")
+
+        if (-not (Test-Path $localPath -PathType Leaf) -and (Test-Path "$localPath.html" -PathType Leaf)) {
+            $localPath = "$localPath.html"
+        }
 
         if (Test-Path $localPath -PathType Leaf) {
             $ext = [System.IO.Path]::GetExtension($localPath).ToLower()

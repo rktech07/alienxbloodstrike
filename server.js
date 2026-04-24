@@ -54,7 +54,13 @@ const server = http.createServer((req, res) => {
     let urlPath = req.url.split('?')[0]; // strip query params
     if (urlPath === '/') urlPath = '/index.html';
 
-    const filePath   = path.join(rootDir, urlPath);
+    let filePath   = path.join(rootDir, urlPath);
+    
+    // Support clean URLs: if path has no extension and .html exists, use it
+    if (!path.extname(filePath) && fs.existsSync(filePath + '.html')) {
+        filePath += '.html';
+    }
+
     const ext        = path.extname(filePath).toLowerCase();
     const contentType = mimeTypes[ext] || 'application/octet-stream';
 
