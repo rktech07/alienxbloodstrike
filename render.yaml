@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: creator-hub-static
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /save-config
+        destination: /save-config-stub.json
