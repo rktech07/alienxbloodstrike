@@ -1,0 +1,91 @@
+{
+    "ytApiKey":           "",
+    "ytChannelId":        "UCurgVyT9nU64SAbmn_s4Pyg",
+    "ytChannelUrl":       "https://www.youtube.com/@Alien.x010",
+    "ytName":             "ALIEN .X",
+    "ytLogo":             "https://yt3.ggpht.com/lflqvADhy2SPBUnLdWa1eQn5oDYb6A1mnC9UTTRoV2Q5KyqfsAaeBJL5cs12alKELPGRQPQR7w=s88-c-k-c0x00ffffff-no-rj",
+    "fbUrl":              "https://www.facebook.com/share/14e41X3AExw/",
+    "igUrl":              "https://www.instagram.com/alienxbloodstrike",
+    "tikTokUrl":          "https://www.tiktok.com/@alienxbloodstrike",
+    "discordUrl":         "https://discord.gg/HAbxegtR",
+    "twitchUrl":          "",
+    "latestVideoUrl":     "",
+    "latestVideoTitle":   "",
+    "latestVideoDesc":    "",
+    "latestVideoThumb":   "",
+    "popularVideoUrl":    "",
+    "popularVideoTitle":  "",
+    "popularVideoDesc":   "",
+    "popularVideoThumb":  "",
+    "newUploadUrl":       "",
+    "newUploadLabel":     "New Upload!",
+    "tournaments":        [],
+    "spinParticipants":   [],
+    "spinWinners":        [],
+    "bloodStrikeUpdates": [
+        {
+            "title":  "Striker Adjustments: ALONDRA",
+            "desc":   "Alondra's performance is a bit too dominant. Her jetpack lets her change direction midair multiple times at very low cost, making it extremely frustrating for opponents to aim at her. Balance changes now live.",
+            "poster": "https://r.res.easebar.com/pic/20260415/7d7720c6-57f4-4bad-9645-86f8a009ae64.png",
+            "tag":    "BALANCE UPDATE",
+            "date":   "Apr 16, 2026",
+            "link":   "https://www.blood-strike.com/news/update/20260415/39377_1296268.html",
+            "aiGenerated": false
+        },
+        {
+            "title":  "Blood Strike × The Seven Deadly Sins Collab",
+            "desc":   "The Seven Deadly Sins crossover is now live! From 4/3 to 5/3, participate in special game modes and events to get multiple exclusive crossover cosmetics for free. Limited-time only — don't miss out!",
+            "poster": "https://r.res.easebar.com/pic/20260403/ab968bb4-1b5e-4fd6-9c28-3693a87ec869.png",
+            "tag":    "COLLABORATION",
+            "date":   "Apr 3, 2026",
+            "link":   "https://www.blood-strike.com/news/update/20260403/39377_1294546.html",
+            "aiGenerated": false
+        },
+        {
+            "title":  "2nd Anniversary Celebration — Ascendant Season",
+            "desc":   "BloodStrike 2nd Ascendant is officially enabled! Multiple limited-time events are live. Win exclusive Limited gun skins, Striker skins, and a massive amount of Gold. Celebrate 2 years of Blood Strike!",
+            "poster": "https://r.res.easebar.com/pic/20260312/2b439a79-0ced-4ef6-b9e5-06ae2d1fee1a.png",
+            "tag":    "ANNIVERSARY",
+            "date":   "Mar 12, 2026",
+            "link":   "https://www.blood-strike.com/news/update/20260312/39377_1290866.html",
+            "aiGenerated": false
+        },
+        {
+            "title":  "BR Mid-Season Update — Wildcard System",
+            "desc":   "The tactical Dimension gets another upgrade! Breaking away from fixed combat playstyles, we're introducing a brand-new in-match system — [Wildcard]. Richer, more strategic combat experience for all Strikers.",
+            "poster": "https://r.res.easebar.com/pic/20260210/09211985-88c3-4e92-8f5f-22f0e92975a5.png",
+            "tag":    "VERSION UPDATE",
+            "date":   "Feb 10, 2026",
+            "link":   "https://www.blood-strike.com/news/update/20260210/39377_1286343.html",
+            "aiGenerated": false
+        },
+        {
+            "title":  "Blood Strike × BLEACH: Thousand-Year Blood War",
+            "desc":   "BLEACH collab Event Now Live! From 2/1 to 2/28, participate in BLEACH Gameplay and Events to obtain multiple BLEACH collab skins. Limited-time only — don't miss out!",
+            "poster": "https://r.res.easebar.com/pic/20260129/23512dd0-3553-4f7f-8c3c-bd35bef65c22.png",
+            "tag":    "COLLABORATION",
+            "date":   "Feb 1, 2026",
+            "link":   "https://www.blood-strike.com/news/update/20260129/39377_1284589.html",
+            "aiGenerated": false
+        },
+        {
+            "title":  "Weapon Adjustments: AR97 Reticle Fix",
+            "desc":   "The reticle sway of the AR97 made it difficult to perform at long range. This version significantly optimizes the AR97's firing reticle sway for better precision at distance.",
+            "poster": "https://r.res.easebar.com/pic/20260129/1ea70b3f-2441-48d9-a443-467aedcf8784.png",
+            "tag":    "WEAPON BALANCE",
+            "date":   "Jan 29, 2026",
+            "link":   "https://www.blood-strike.com/news/update/20260129/39377_1284418.html",
+            "aiGenerated": false
+        },
+        {
+            "title":  "Road to Mythic — Season 13 Ranked Event",
+            "desc":   "The climb to greatness begins now. With Season 13, we launch the Road to Mythic event: prove your skill, dominate the leaderboards, and win exclusive rewards including the Golden Butterfly Knife, gold, and a rare title.",
+            "poster": "https://r.res.easebar.com/pic/20251212/5c7720c6-57f4-4bad-9645-86f8a009ae64.png",
+            "tag":    "RANKED EVENT",
+            "date":   "Sep 12, 2025",
+            "link":   "https://www.blood-strike.com/news/official/20250912/39376_1259102.html",
+            "aiGenerated": false
+        }
+    ],
+    "geminiApiKey": ""
+}

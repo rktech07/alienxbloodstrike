@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Creator Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #13131e;
+        }
+
+        .glass-nav {
+            background: rgba(255, 100, 100, 0.08);
+            border-bottom: 1px solid rgba(255, 118, 117, 0.3);
+        }
+
+        .logo-blood {
+            color: #ff7675;
+        }
+
+        .logo-strike {
+            color: #fab1a0;
+        }
+
+        .admin-badge {
+            background: #ff7675;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .view {
+            padding: 1.5rem 2rem;
+        }
+
+        .view.active {
+            display: block !important;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--gborder2);
+            margin: 1.5rem 0;
+        }
+
+        .badge-inline {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.68rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-mgmt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media(max-width:700px) {
+
+            .video-mgmt-grid,
+            .tournament-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .ai-section {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.08), rgba(232, 65, 24, 0.05));
+            border: 1px solid rgba(108, 92, 231, 0.25);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .ai-section h4 {
+            color: #6c5ce7;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PIN Lock -->
+    <div id="admin-lock-screen">
+        <div class="lock-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h2>ADMIN <span style="color:#ff7675;">PANEL</span></h2>
+        <p style="color:var(--dim);">Enter your PIN to continue</p>
+        <input type="password" id="admin-pin-input" maxlength="8" placeholder="••••" autocomplete="off">
+        <button id="admin-pin-submit"><i class="fa-solid fa-unlock"></i> Unlock</button>
+        <p id="admin-pin-error"></p>
+        <p style="font-size:0.75rem;color:var(--dim);margin-top:0.5rem;">Default PIN: <strong>1234</strong></p>
+    </div>
+
+    <!-- Admin Content -->
+    <div id="admin-main-content" style="display:none;">
+        <nav class="glass-nav">
+            <div class="logo"><span class="logo-blood">CREATOR</span><span class="logo-strike">HUB</span><span
+                    class="admin-badge">ADMIN</span></div>
+            <ul class="nav-links" style="flex:1;justify-content:center;">
+                <li><a href="#" data-target="social" class="active"><i class="fa-solid fa-hashtag"></i><span>API &amp;
+                            Social</span></a></li>
+                <li><a href="#" data-target="videos"><i class="fa-solid fa-film"></i><span>Videos</span></a></li>
+                <li><a href="#" data-target="updates"><i class="fa-solid fa-bolt"></i><span>BS Updates</span></a></li>
+                <li><a href="#" data-target="tournaments"><i class="fa-solid fa-trophy"></i><span>Events</span></a></li>
+                <li><a href="#" data-target="spinwheel"><i class="fa-solid fa-dharmachakra"></i><span>Spin
+                            Wheel</span></a></li>
+                <li><a href="index.html" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i><span>Public Site</span></a></li>
+            </ul>
+        </nav>
+        <main class="content-container" style="align-items:flex-start;overflow-y:auto;padding-top:80px;">
+            <div style="width:92%;max-width:1050px;margin:0 auto;padding-bottom:4rem;">
+
+                <!-- API & SOCIAL -->
+                <section id="social" class="view active" style="display:block!important;">
+                    <h2 class="mb-2"><i class="fa-brands fa-youtube" style="color:var(--yt);"></i> YouTube API</h2>
+                    <div class="glass-card mb-4">
+                        <label>YouTube API Key (v3):</label>
+                        <input type="password" id="ytApiKey" placeholder="AIzaSy..." class="input-field">
+                        <label>YouTube Channel ID:</label>
+                        <input type="text" id="ytChannelId" placeholder="UC..." class="input-field mb-2">
+                        <button class="btn primary-btn" id="ytConnectBtn"><i class="fa-solid fa-link"></i> Fetch &amp;
+                            Connect Channel</button>
+                        <p id="ytStatusMsg" class="mt-2"></p>
+                    </div>
+                    <div class="glass-card mb-4">
+                        <label>Gemini API Key (for AI Blood Strike Updates):</label>
+                        <input type="password" id="geminiApiKey" placeholder="AIzaSy..." class="input-field mb-2">
+                        <p style="font-size:0.78rem;color:var(--dim);">Used only for generating Blood Strike update
+                            posts with AI. Get a free key at <a href="https://aistudio.google.com" target="_blank"
+                                style="color:var(--accent);">aistudio.google.com</a></p>
+                    </div>
+                    <h2 class="mb-2 mt-4"><i class="fa-solid fa-share-nodes"></i> Social Platform Links</h2>
+                    <div class="glass-card mb-4">
+                        <div class="video-mgmt-grid">
+                            <div>
+                                <label><i class="fa-brands fa-facebook" style="color:var(--fb);"></i> Facebook Page
+                                    URL:</label>
+                                <input type="url" id="fbUrlInput" placeholder="https://facebook.com/yourpage"
+                                    class="input-field">
+                                <label><i class="fa-brands fa-instagram" style="color:var(--ig);"></i> Instagram Profile
+                                    URL:</label>
+                                <input type="url" id="igUrlInput" placeholder="https://instagram.com/yourhandle"
+                                    class="input-field">
+                            </div>
+                            <div>
+                                <label><i class="fa-brands fa-tiktok"></i> TikTok Profile URL:</label>
+                                <input type="url" id="tikTokUrlInput" placeholder="https://tiktok.com/@yourhandle"
+                                    class="input-field">
+                                <label><i class="fa-brands fa-twitch" style="color:var(--twitch);"></i> Twitch Channel
+                                    URL:</label>
+                                <input type="url" id="twitchUrlInput" placeholder="https://twitch.tv/yourchannel"
+                                    class="input-field">
+                            </div>
+                        </div>
+                        <button class="btn primary-btn" id="saveSocialBtn"><i class="fa-solid fa-save"></i> Save All
+                            Social Links</button>
+                        <p id="socialStatusMsg" class="mt-2"></p>
+                    </div>
+                    <p>Connected Channel: <strong id="syncChannelName">Not connected</strong></p>
+                </section>
+
+                <!-- VIDEOS -->
+                <section id="videos" class="view" style="display:none;">
+                    <h2 class="mb-4"><i class="fa-solid fa-film"></i> Video Management</h2>
+                    <div class="video-mgmt-grid mb-4">
+                        <div class="glass-card">
+                            <h3><span class="badge-inline new-badge">NEW</span> Latest Video Card</h3>
+                            <label>YouTube URL *</label><input type="url" id="latestUrlInput"
+                                placeholder="https://youtube.com/watch?v=..." class="input-field">
+                            <label>Title</label><input type="text" id="latestTitleInput" placeholder="Video title"
+                                class="input-field">
+                            <label>Thumbnail URL</label><input type="url" id="latestThumbInput"
+                                placeholder="https://i.ytimg.com/vi/.../maxresdefault.jpg" class="input-field">
+                            <label>Short Description</label><input type="text" id="latestDescInput"
+                                placeholder="Brief description..." class="input-field">
+                            <div class="btn-row"><button class="btn primary-btn" id="saveLatestVideoBtn"
+                                    style="flex:1"><i class="fa-solid fa-save"></i> Save</button>
+                                <button class="btn small-btn danger-btn" id="clearLatestVideoBtn"><i
+                                        class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <p id="latestVideoStatusMsg" class="mt-2"></p>
+                        </div>
+                        <div class="glass-card">
+                            <h3><span class="badge-inline popular-badge">POPULAR</span> Popular Video Card</h3>
+                            <label>YouTube URL *</label><input type="url" id="popularUrlInput"
+                                placeholder="https://youtube.com/watch?v=..." class="input-field">
+                            <label>Title</label><input type="text" id="popularTitleInput" placeholder="Video title"
+                                class="input-field">
+                            <label>Thumbnail URL</label><input type="url" id="popularThumbInput"
+                                placeholder="https://i.ytimg.com/vi/.../maxresdefault.jpg" class="input-field">
+                            <label>Short Description</label><input type="text" id="popularDescInput"
+                                placeholder="Brief description..." class="input-field">
+                            <div class="btn-row"><button class="btn primary-btn" id="savePopularVideoBtn"
+                                    style="flex:1"><i class="fa-solid fa-save"></i> Save</button>
+                                <button class="btn small-btn danger-btn" id="clearPopularVideoBtn"><i
+                                        class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <p id="popularVideoStatusMsg" class="mt-2"></p>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i class="fa-solid fa-bell" style="color:var(--primary);"></i> "New Upload!" Nav Button</h3>
+                        <p class="text-dim mb-2" style="font-size:0.82rem;">When saved, the glowing notification button
+                            appears in the navbar on the public site automatically.</p>
+                        <label>Video URL *</label><input type="url" id="newUploadUrlInput"
+                            placeholder="https://youtube.com/watch?v=..." class="input-field">
+                        <label>Button Label (default: New Upload!)</label><input type="text" id="newUploadLabelInput"
+                            placeholder="New Upload!" class="input-field">
+                        <div class="btn-row">
+                            <button class="btn primary-btn" id="saveNewUploadBtn" style="flex:1"><i
+                                    class="fa-solid fa-bell"></i> Activate Nav Button</button>
+                            <button class="btn small-btn danger-btn" id="clearNewUploadBtn"><i
+                                    class="fa-solid fa-trash"></i> Hide</button>
+                        </div>
+                        <p id="newUploadStatusMsg" class="mt-2"></p>
+                    </div>
+                </section>
+
+                <!-- BLOOD STRIKE UPDATES -->
+                <section id="updates" class="view" style="display:none;">
+                    <h2 class="mb-2"><i class="fa-solid fa-bolt" style="color:var(--secondary);"></i> Blood Strike
+                        Updates</h2>
+                    <p class="text-dim mb-4">Post game updates with posters. Use Gemini AI to auto-generate content or
+                        add manually.</p>
+                    <div class="video-mgmt-grid mb-4">
+                        <div class="glass-card">
+                            <h3>Add Manual Update</h3>
+                            <label>Title *</label><input type="text" id="updateTitle"
+                                placeholder="e.g. Season 5 Launch!" class="input-field">
+                            <label>Tag</label><input type="text" id="updateTag"
+                                placeholder="e.g. PATCH NOTES, EVENT, NEW WEAPON" class="input-field">
+                            <label>Description</label><textarea id="updateDesc" placeholder="Describe the update..."
+                                class="input-field"></textarea>
+                            <label>Poster Image URL</label><input type="url" id="updatePoster"
+                                placeholder="https://... (game banner image)" class="input-field">
+                            <button class="btn primary-btn full-width" id="addUpdateBtn"><i
+                                    class="fa-solid fa-plus"></i> Add Update</button>
+                            <p id="updateStatusMsg" class="mt-2"></p>
+                        </div>
+                        <div class="glass-card">
+                            <div class="ai-section">
+                                <h4><i class="fa-solid fa-robot"></i> AI Generate with Gemini</h4>
+                                <p class="text-dim mb-2" style="font-size:0.78rem;">Uses your saved Gemini API key to
+                                    auto-generate a Blood Strike update post. Set the Gemini key in API &amp; Social tab
+                                    first.</p>
+                                <label>AI Prompt (optional — leave blank for default):</label>
+                                <textarea id="aiPromptInput" class="input-field"
+                                    placeholder='e.g. "Write a Blood Strike Season 5 update about the new Phantom rifle..."'
+                                    style="min-height:70px;"></textarea>
+                                <label>Poster Image URL (optional):</label>
+                                <input type="url" id="updatePoster" placeholder="https://..." class="input-field"
+                                    style="display:none;">
+                                <button class="btn primary-btn full-width" id="aiGenerateBtn"
+                                    style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);">
+                                    <i class="fa-solid fa-robot"></i> Generate with Gemini AI
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="mb-2">Published Updates</h3>
+                    <div id="adminUpdatesList" class="glass-card" style="min-height:80px;"></div>
+                </section>
+
+                <!-- TOURNAMENTS -->
+                <section id="tournaments" class="view" style="display:none;">
+                    <h2 class="mb-4"><i class="fa-solid fa-trophy"></i> Manage Events</h2>
+                    <div class="tournament-layout">
+                        <div class="glass-card">
+                            <h3>Create New Event</h3>
+                            <form id="adminTournamentForm">
+                                <label>Tournament Name *</label><input type="text" id="eventName" class="input-field"
+                                    required>
+                                <label>Game *</label><input type="text" id="eventGame" placeholder="Blood Strike"
+                                    class="input-field" required>
+                                <label>Prize Pool</label><input type="text" id="eventPrize" placeholder="$500"
+                                    class="input-field">
+                                <label>Poster URL</label><input type="url" id="eventThumbnail" class="input-field">
+                                <label>Date &amp; Time *</label><input type="datetime-local" id="eventDate"
+                                    class="input-field" required>
+                                <label>Max Participants</label><input type="number" id="eventSlots" class="input-field">
+                                <label>Registration Link</label><input type="url" id="eventLink" class="input-field">
+                                <button type="submit" class="btn primary-btn full-width"><i
+                                        class="fa-solid fa-upload"></i> Publish Event</button>
+                            </form>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Active Events</h3>
+                            <ul class="event-list" id="adminEventsList"></ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SPIN WHEEL -->
+                <section id="spinwheel" class="view" style="display:none;">
+                    <h2 class="mb-4"><i class="fa-solid fa-dharmachakra"></i> Spin Wheel Controls</h2>
+                    <div class="glass-card">
+                        <button class="btn outline-btn full-width mb-2" id="fetchRecentVideosBtn"><i
+                                class="fa-brands fa-youtube"></i> Load Recent Videos for Comments</button>
+                        <div id="recentVideosList"
+                            style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem;max-height:240px;overflow-y:auto;">
+                        </div>
+                        <hr class="section-divider">
+                        <label>OR — Paste YouTube Video URL / ID:</label>
+                        <input type="text" id="manualVideoUrlInput" class="input-field mb-2"
+                            placeholder="https://youtube.com/watch?v=...">
+                        <button class="btn primary-btn full-width mb-4" id="loadManualVideoBtn"><i
+                                class="fa-solid fa-comments"></i> Fetch Comments from Video</button>
+                        <p>Loaded participants: <strong id="loadedUsersCount">0</strong></p>
+                        <p id="spinStatusMsg" class="text-dim mt-2"></p>
+                        <hr class="section-divider">
+                        <p class="text-dim mb-2" style="font-size:0.82rem;">Open the Public Site on another screen, then
+                            click below to trigger the spin.</p>
+                        <button class="btn primary-btn full-width" id="adminSpinBtn"
+                            style="font-size:1rem;padding:1rem;">🎰 TRIGGER PUBLIC SPIN!</button>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="admin_app.js"></script>
+</body>
+
+</html>

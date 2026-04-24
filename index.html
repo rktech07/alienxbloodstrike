@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodStrike Hub – Creator Central</title>
+    <meta name="description" content="BloodStrike Hub: tournaments, giveaways, latest videos, and game updates for the ultimate Blood Strike fan community.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Animated particle background -->
+<div id="particles-bg" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<nav class="glass-nav" id="main-nav">
+    <div class="logo"><span class="logo-blood">BLOOD</span><span class="logo-strike">STRIKE</span><span class="logo-hub"> HUB</span></div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-target="home" class="active" id="nav-home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+        <li><a href="#" data-target="updates" id="nav-updates"><i class="fa-solid fa-bolt"></i><span>BS Updates</span></a></li>
+        <li><a href="#" data-target="social" id="nav-social"><i class="fa-solid fa-hashtag"></i><span>Social</span></a></li>
+        <li><a href="#" data-target="tournaments" id="nav-tournaments"><i class="fa-solid fa-trophy"></i><span>Tournaments</span></a></li>
+        <li><a href="#" data-target="spinwheel" id="nav-spinwheel"><i class="fa-solid fa-dharmachakra"></i><span>Spin Wheel</span></a></li>
+    </ul>
+    <a href="#" id="nav-new-upload" class="nav-new-upload hidden" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-bell"></i> <span id="nav-new-upload-label">New Upload!</span>
+    </a>
+    <div id="nav-profile" class="nav-profile" style="display:none;">
+        <img id="nav-profile-img" src="" alt="Channel Logo">
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+</nav>
+
+<!-- Main Content -->
+<main class="content-container">
+
+    <!-- HOME VIEW -->
+    <section id="home" class="view active home-scroll">
+        <div class="home-container">
+
+            <!-- HERO BANNER -->
+            <div class="hero-banner" id="hero-banner">
+                <div class="hero-bg-anim"></div>
+                <div class="hero-content-inner">
+                    <div class="hero-badge"><i class="fa-solid fa-crosshairs"></i> BLOOD STRIKE CREATOR</div>
+                    <h1 class="hero-title">TACTICAL <span class="glow-text">OPERATOR</span></h1>
+                    <p class="hero-sub">Dropping the most intense gameplay, aggressive loadouts, and strategic breakdowns. Drop in with me.</p>
+                    <div class="hero-btns">
+                        <button class="btn primary-btn hero-cta" onclick="document.querySelector('[data-target=social]').click()">
+                            <i class="fa-solid fa-crosshairs"></i> Join Squad
+                        </button>
+                        <button class="btn outline-btn hero-cta" onclick="document.querySelector('[data-target=tournaments]').click()">
+                            <i class="fa-solid fa-trophy"></i> Tournaments
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image-side">
+                    <div class="hero-img-frame">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80&auto=format&fit=crop" alt="Gaming Setup" id="hero-channel-img">
+                        <div class="hero-img-glow"></div>
+                    </div>
+                </div>
+                <div class="hero-scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+
+            <!-- STATS BAR -->
+            <div class="stats-bar glass-card">
+                <div class="stat-item">
+                    <i class="fa-brands fa-youtube" style="color:#ff0000;"></i>
+                    <div><span class="stat-num" id="stat-channel">Connecting...</span><span class="stat-label">Channel</span></div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-fire" style="color:#fbc531;"></i>
+                    <div><span class="stat-num">Active</span><span class="stat-label">Status</span></div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-trophy" style="color:#e84118;"></i>
+                    <div><span class="stat-num" id="stat-tournaments">0</span><span class="stat-label">Events</span></div>
+                </div>
+            </div>
+
+            <!-- BLOOD STRIKE UPDATES -->
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-solid fa-bolt"></i> Blood Strike <span class="glow-text">Updates</span></h2>
+                <a href="#" data-target="updates" class="view-all-btn" id="home-view-all-updates"><i class="fa-solid fa-arrow-right"></i> View All</a>
+            </div>
+            <div class="updates-feed" id="bs-updates-feed">
+                <div class="update-skeleton">
+                    <div class="sk-img"></div>
+                    <div class="sk-lines"><div class="sk-line sk-short"></div><div class="sk-line"></div><div class="sk-line sk-med"></div></div>
+                </div>
+            </div>
+
+            <!-- FEATURED VIDEOS -->
+            <h2 class="section-title mt-4"><i class="fa-solid fa-fire"></i> Featured <span class="glow-text">Content</span></h2>
+            <div class="home-grid">
+                <!-- Latest Video -->
+                <div class="glass-card video-card tilt-card" id="latest-video-card">
+                    <div class="card-badge new-badge">NEW</div>
+                    <div class="card-img-placeholder" id="latest-video-img">
+                        <i class="fa-brands fa-youtube" id="latest-video-icon" style="font-size:3rem;color:#ff0000;"></i>
+                        <div class="card-img-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="latest-video-title">My Latest Video</h3>
+                        <div class="card-meta">
+                            <span id="latest-video-views"><i class="fa-solid fa-eye"></i> —</span>
+                            <span id="latest-video-date"><i class="fa-solid fa-clock"></i> —</span>
+                        </div>
+                        <p id="latest-video-desc" class="card-desc"></p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" id="latest-video-link" class="btn primary-btn full-width watch-btn"><i class="fa-solid fa-play"></i> Watch Now</a>
+                    </div>
+                </div>
+                <!-- Popular Video -->
+                <div class="glass-card video-card tilt-card" id="popular-video-card">
+                    <div class="card-badge popular-badge">POPULAR</div>
+                    <div class="card-img-placeholder" id="popular-video-img" style="background:linear-gradient(135deg,#182848,#4b6cb7);">
+                        <i class="fa-solid fa-star" id="popular-video-icon" style="font-size:3rem;color:#f1c40f;"></i>
+                        <div class="card-img-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="popular-video-title">Most Viewed Video</h3>
+                        <div class="card-meta">
+                            <span id="popular-video-views"><i class="fa-solid fa-star"></i> —</span>
+                            <span id="popular-video-date"><i class="fa-solid fa-clock"></i> —</span>
+                        </div>
+                        <p id="popular-video-desc" class="card-desc"></p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" id="popular-video-link" class="btn primary-btn full-width watch-btn"><i class="fa-solid fa-play"></i> Watch Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LATEST INTEL / BLOG -->
+            <h2 class="section-title mt-4"><i class="fa-solid fa-skull-crossbones"></i> Latest <span class="glow-text">Intel</span></h2>
+            <div class="blog-card glass-card tilt-card">
+                <div class="blog-tag">PATCH NOTES</div>
+                <div class="blog-header">
+                    <div><span class="blog-date" id="blog-date">April 2026</span>
+                    <h3 id="blog-title">Current Meta Loadouts</h3></div>
+                    <div class="blog-icon"><i class="fa-solid fa-gun"></i></div>
+                </div>
+                <p id="blog-text" class="blog-excerpt">The recent Blood Strike patch completely shifted the meta. SMGs are dominating close-quarters combat. I've found a lethal combo using the URB with extended mags and ADS speed attachments. Drop a full breakdown soon — stay sharp, Strikers!</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BS UPDATES FULL VIEW -->
+    <section id="updates" class="view hidden">
+        <div class="glass-panel wide">
+            <div class="section-header" style="margin-bottom:1.5rem;">
+                <h2 class="section-title"><i class="fa-solid fa-bolt"></i> Blood Strike <span class="glow-text">Updates</span></h2>
+                <a href="https://www.blood-strike.com/news/" target="_blank" rel="noopener noreferrer" class="view-all-btn">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Official Site
+                </a>
+            </div>
+            <p class="text-dim mb-4">Latest news and patch notes sourced directly from <strong style="color:var(--primary);">blood-strike.com</strong></p>
+            <div class="updates-feed updates-feed-full" id="bs-updates-feed-full">
+                <!-- filled by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL VIEW -->
+    <section id="social" class="view hidden">
+        <div class="glass-panel wide">
+            <h2><i class="fa-solid fa-satellite-dish"></i> Social <span class="glow-text">Hub</span></h2>
+            <p class="text-dim mb-4">Connect with me across all platforms</p>
+            <div class="social-grid">
+                <div class="platform-card youtube" id="yt-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-youtube"></i></div>
+                    <h3>YouTube</h3>
+                    <p><span id="yt-channel-name" class="status connected">@Alien.x010</span></p>
+                    <a href="https://www.youtube.com/@Alien.x010" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="yt-subscribe-btn">Subscribe</a>
+                </div>
+                <div class="platform-card discord" id="discord-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-discord"></i></div>
+                    <h3>Discord</h3>
+                    <p><span class="status connected">Join the Squad</span></p>
+                    <a href="https://discord.gg/HAbxegtR" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="discord-link-btn">Join Server</a>
+                </div>
+                <div class="platform-card facebook" id="fb-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-facebook"></i></div>
+                    <h3>Facebook</h3>
+                    <p><span class="status connected">Follow us</span></p>
+                    <a href="https://www.facebook.com/share/14e41X3AExw/" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="fb-link-btn">Follow Page</a>
+                </div>
+                <div class="platform-card instagram" id="ig-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-instagram"></i></div>
+                    <h3>Instagram</h3>
+                    <p><span class="status connected">@alienxbloodstrike</span></p>
+                    <a href="https://www.instagram.com/alienxbloodstrike" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="ig-link-btn">Follow</a>
+                </div>
+                <div class="platform-card tiktok" id="tiktok-card">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-tiktok"></i></div>
+                    <h3>TikTok</h3>
+                    <p><span class="status connected">@alienxbloodstrike</span></p>
+                    <a href="https://www.tiktok.com/@alienxbloodstrike" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="tiktok-link-btn">Follow</a>
+                </div>
+                <div class="platform-card twitch" id="twitch-card" style="display:none;">
+                    <div class="platform-icon-wrap"><i class="fa-brands fa-twitch"></i></div>
+                    <h3>Twitch</h3>
+                    <p><span class="status connected">Live Channel</span></p>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn platform-btn" id="twitch-link-btn">Follow Channel</a>
+                </div>
+            </div>
+            <h3 class="mt-4">Latest Activity</h3>
+            <div class="feed-container">
+                <div class="feed-item"><i class="fa-brands fa-youtube icon-small" style="color:#ff0000;"></i>
+                <div class="feed-text" id="yt-latest-activity">Content from ALIEN .X</div></div>
+                <div class="feed-item"><i class="fa-brands fa-discord icon-small" style="color:#5865f2;"></i>
+                <div class="feed-text">Join the community on Discord — giveaways, squad play & more!</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOURNAMENTS VIEW -->
+    <section id="tournaments" class="view hidden">
+        <div class="glass-panel wide">
+            <h2><i class="fa-solid fa-trophy"></i> Active <span class="glow-text">Events</span></h2>
+            <ul class="event-list" id="public-tournaments-list">
+                <li><div><strong>No active events</strong><span>Check back later!</span></div></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SPIN WHEEL VIEW -->
+    <section id="spinwheel" class="view hidden">
+        <div class="glass-panel wide spinwheel-layout">
+            <div class="wheel-controls glass-card">
+                <h2><i class="fa-solid fa-dharmachakra"></i> Live <span class="glow-text">Giveaway</span></h2>
+                <p class="text-dim" id="spin-status-msg">Waiting for the admin to spin the wheel...</p>
+                <div id="winnerDisplay" class="winner-display hidden">
+                    <h3>🎉 WINNER 🎉</h3>
+                    <p id="winnerText">...</p>
+                </div>
+                <h3 class="mt-4" style="color:var(--secondary);"><i class="fa-solid fa-crown"></i> Recent Winners</h3>
+                <ul id="winnersList" style="list-style:none;padding:0;max-width:400px;margin:1rem auto;text-align:left;">
+                    <li style="text-align:center;color:var(--text-dim);">No winners yet. Spin the wheel!</li>
+                </ul>
+            </div>
+            <div class="wheel-3d-container">
+                <canvas id="wheelCanvas"></canvas>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Scrolling character -->
+<div id="scrolling-character" aria-hidden="true"><i class="fa-solid fa-person-military-rifle"></i></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="spin_wheel.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
