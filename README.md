@@ -1,6 +1,6 @@
 # Blood Strike Creator Hub
 
-Welcome to the **Blood Strike Creator Hub** (v1.0) – a fully responsive, professional web application designed for gaming content creators. This platform serves as a centralized hub to showcase your latest videos, announce game updates, manage tournaments, and host interactive giveaways.
+Welcome to the **Blood Strike Creator Hub** (v1.0) – a fully responsive, professional web application designed exclusively as my personal gaming content creator hub. This platform serves as a centralized place to showcase my latest videos, announce game updates, manage tournaments, and host interactive giveaways.
 
 ## 🚀 Features
 
@@ -38,4 +38,4 @@ All platform data—including your connected social links, latest videos, upcomi
 This project is configured for continuous deployment on **Render**. Simply push your changes to the `main` branch of this GitHub repository, and Render will automatically build and deploy the latest version of the Creator Hub to the live web.
 
 ---
-*Created with ❤️ for the Blood Strike gaming community.*
+*Created exclusively for my personal Blood Strike gaming community.*
